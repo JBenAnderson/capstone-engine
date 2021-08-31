@@ -1,3 +1,8 @@
+<<<<<<< HEAD
 {
   "jwtSecret": "bcfdfa75-6b99-4a76-8b1d-06f7b082841f"
+=======
+{
+  "jwtSecret": "352adb97-1214-45e8-b118-eb5536842172"
+>>>>>>> 0e8805f80dd41a675cf6acdc40eadca75ee94d76
 }
