@@ -1,8 +1,8 @@
 import { gql, useQuery } from "@apollo/client";
 import Dishes from "./dishes";
 import { useContext, useState } from "react";
-
 import AppContext from "./context";
+import "bootstrap/dist/css/bootstrap.min.css";
 import {
   Button,
   Card,
