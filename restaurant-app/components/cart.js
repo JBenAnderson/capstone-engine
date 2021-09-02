@@ -75,8 +75,10 @@ function Cart() {
     return (
       <div>
         <Badge style={{ width: 200, padding: 10 }} color="light">
-          <h5 style={{ fontWeight: 100, color: "gray" }}>Total:</h5>
-          <h3>${cart.total}</h3>
+          <h5 style={{ fontWeight: 100, color: "red" }}>Total:</h5>
+          <h3 style={{ fontWeight: 100, color: "black" }}>
+            ${Intl.NumberFormat().format(cart.total)}
+          </h3>
         </Badge>
         <Link href="/checkout/">
           <Button style={{ width: "60%" }} color="primary">

@@ -1,0 +1,28 @@
+.card {
+  border: 1px solid #000000;
+  border-radius: 10px;
+  transition: color 0.15s ease, border-color 0.15s ease;
+  background-color: rgb(232, 232, 232);
+  box-shadow: 5px 5px #0000009c;
+  overflow: hidden;
+  transition: color 0.15s ease, border-color 0.15s ease;
+
+  align-content: center;
+}
+
+.card:hover,
+.card:focus,
+.card:active {
+  color: #0070f3;
+  border-color: #0070f3;
+  border-width: 2px;
+}
+
+.grid {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  max-width: 800px;
+  margin-top: 3rem;
+}

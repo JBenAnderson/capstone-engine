@@ -8,6 +8,7 @@ import {
 } from "@apollo/client";
 import RestaurantList from "../components/restaurantList.js";
 import { InputGroup, InputGroupAddon, Input } from "reactstrap";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 function Home() {
   const API_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:1337";

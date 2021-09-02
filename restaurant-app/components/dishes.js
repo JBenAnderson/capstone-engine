@@ -34,8 +34,6 @@ function Dishes({ restId }) {
     }
   `;
 
-  const router = useRouter();
-
   const { loading, error, data } = useQuery(GET_RESTAURANT_DISHES, {
     variables: { id: restId },
   });

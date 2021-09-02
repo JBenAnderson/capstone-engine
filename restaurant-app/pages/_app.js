@@ -4,6 +4,7 @@ import AppContext from "../components/context";
 import Home from "./index";
 import Layout from "../components/layout";
 import Cookie from "js-cookie";
+import "../styles/styles.css";
 
 function MyApp(props) {
   var { cart, addItem, removeItem, user, setUser } = useContext(AppContext);

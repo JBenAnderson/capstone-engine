@@ -50,11 +50,18 @@ function RestaurantList(props) {
   if (searchQuery.length > 0) {
     const restList = searchQuery.map((res) => (
       <Col xs="6" sm="4" key={res.id}>
-        <Card style={{ margin: "0 0.5rem 20px 0.5rem" }}>
+        <Card
+          style={{ margin: "0 0.5rem 20px 0.5rem" }}
+          style={{ width: "250px" }}
+          className="card"
+          id="card"
+        >
           <CardImg
             top={true}
             style={{ height: 200 }}
             src={`http://localhost:1337` + res.image.url}
+            className="img-fluid"
+            alt="Responsive image"
           />
           <CardBody>
             <CardText>{res.description}</CardText>
