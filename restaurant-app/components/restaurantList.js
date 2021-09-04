@@ -76,10 +76,10 @@ function RestaurantList(props) {
     ));
 
     return (
-      <Container>
+      <Container style={{ margin: "10px 70px -15px 70px" }}>
         <Container className="container-fluid" id="container-fluid">
-          <Col xs="6" sm="10" className="column" id="column">
-            <Row xs="6" sm="4" className="row" id="row" style={{ padding: 20 }}>
+          <Col xs="6" sm="12" className="column" id="column">
+            <Row xs="6" sm="12" className="row" id="row">
               {restList}
             </Row>
             <Row sm="3">{renderDishes(restaurantID)}</Row>
