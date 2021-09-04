@@ -52,38 +52,39 @@ function RestaurantList(props) {
 
   //Card mapping that takes strapi info and matches it with a bootstrap card.
   if (searchQuery.length > 0) {
-    const restList = searchQuery.map((res) =>
-      carouselList.push(
-        <Col xs="6" sm="4" key={res.id}>
-          <Card
-            style={{ margin: "0 0.5rem 20px 0.5rem" }}
-            className="card"
-            key={res.id}
-          >
-            <CardImg
-              top={true}
-              src={`http://localhost:1337` + res.image.url}
-              className="img-fluid"
-              alt="Responsive image"
-            />
-            <CardBody>
-              <CardText>{res.description}</CardText>
-            </CardBody>
-            <div className="card-footer">
-              <Button color="info" onClick={() => setRestaurantID(res.id)}>
-                {res.name}
-              </Button>
-            </div>
-          </Card>
-        </Col>
-      )
-    );
+    const restList = searchQuery.map((res) => (
+      <Card
+        style={{ margin: "0 0.5rem 20px 0.5rem", padding: 0 }}
+        className="card"
+        key={res.id}
+      >
+        <CardImg
+          top={true}
+          src={`http://localhost:1337` + res.image.url}
+          className="img-fluid"
+          alt="Responsive image"
+        />
+        <CardBody>
+          <CardText>{res.description}</CardText>
+        </CardBody>
+        <div className="card-footer">
+          <Button color="info" onClick={() => setRestaurantID(res.id)}>
+            {res.name}
+          </Button>
+        </div>
+      </Card>
+    ));
 
     return (
       <Container>
-        <Row xs="3">{carouselList}</Row>
-
-        <Row xs="3">{renderDishes(restaurantID)}</Row>
+        <Container className="container-fluid" id="container-fluid">
+          <Col xs="6" sm="10" className="column" id="column">
+            <Row xs="6" sm="4" className="row" id="row" style={{ padding: 20 }}>
+              {restList}
+            </Row>
+            <Row sm="3">{renderDishes(restaurantID)}</Row>
+          </Col>
+        </Container>
       </Container>
     );
   } else {
