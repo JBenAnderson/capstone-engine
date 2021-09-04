@@ -3,6 +3,7 @@ import Dishes from "./dishes";
 import { useContext, useState } from "react";
 import AppContext from "./context";
 import "bootstrap/dist/css/bootstrap.min.css";
+
 import {
   Button,
   Card,
@@ -19,6 +20,7 @@ function RestaurantList(props) {
   const [restaurantID, setRestaurantID] = useState(0);
   const { cart } = useContext(AppContext);
   const [state, setState] = useState(cart);
+  const carouselList = [];
   const GET_RESTAURANTS = gql`
     query {
       restaurants {
@@ -47,37 +49,39 @@ function RestaurantList(props) {
   const renderDishes = (restaurantID) => {
     return <Dishes restId={restaurantID}> </Dishes>;
   };
+
+  //Card mapping that takes strapi info and matches it with a bootstrap card.
   if (searchQuery.length > 0) {
-    const restList = searchQuery.map((res) => (
-      <Col xs="6" sm="4" key={res.id}>
-        <Card
-          style={{ margin: "0 0.5rem 20px 0.5rem" }}
-          style={{ width: "250px" }}
-          className="card"
-          id="card"
-        >
-          <CardImg
-            top={true}
-            style={{ height: 200 }}
-            src={`http://localhost:1337` + res.image.url}
-            className="img-fluid"
-            alt="Responsive image"
-          />
-          <CardBody>
-            <CardText>{res.description}</CardText>
-          </CardBody>
-          <div className="card-footer">
-            <Button color="info" onClick={() => setRestaurantID(res.id)}>
-              {res.name}
-            </Button>
-          </div>
-        </Card>
-      </Col>
-    ));
+    const restList = searchQuery.map((res) =>
+      carouselList.push(
+        <Col xs="6" sm="4" key={res.id}>
+          <Card
+            style={{ margin: "0 0.5rem 20px 0.5rem" }}
+            className="card"
+            key={res.id}
+          >
+            <CardImg
+              top={true}
+              src={`http://localhost:1337` + res.image.url}
+              className="img-fluid"
+              alt="Responsive image"
+            />
+            <CardBody>
+              <CardText>{res.description}</CardText>
+            </CardBody>
+            <div className="card-footer">
+              <Button color="info" onClick={() => setRestaurantID(res.id)}>
+                {res.name}
+              </Button>
+            </div>
+          </Card>
+        </Col>
+      )
+    );
 
     return (
       <Container>
-        <Row xs="3">{restList}</Row>
+        <Row xs="3">{carouselList}</Row>
 
         <Row xs="3">{renderDishes(restaurantID)}</Row>
       </Container>
