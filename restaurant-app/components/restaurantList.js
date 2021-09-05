@@ -68,7 +68,13 @@ function RestaurantList(props) {
           <CardText>{res.description}</CardText>
         </CardBody>
         <div className="card-footer">
-          <Button color="info" onClick={() => setRestaurantID(res.id)}>
+          <Button
+            color="info"
+            onClick={() => {
+              setRestaurantID(res.id);
+              let cardFocus = document.getElementById("card");
+            }}
+          >
             {res.name}
           </Button>
         </div>
@@ -82,7 +88,10 @@ function RestaurantList(props) {
             <Row xs="6" sm="12" className="row" id="row">
               {restList}
             </Row>
-            <Row sm="3">{renderDishes(restaurantID)}</Row>
+
+            <Row xs="6" sm="4" className="rowDish" id="rowDish">
+              {renderDishes(restaurantID)}
+            </Row>
           </Col>
         </Container>
       </Container>

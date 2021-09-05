@@ -48,33 +48,32 @@ function Dishes({ restId }) {
     return (
       <>
         {restaurant.dishes.map((res) => (
-          <Col xs="6" sm="4" style={{ padding: 0 }} key={res.id}>
-            <Card style={{ margin: "0 10px" }}>
-              <CardImg
-                top={true}
-                src={`http://localhost:1337${res.image.url}`}
-              />
-              <CardBody>
-                <CardTitle>{res.name}</CardTitle>
-                <CardText>{res.description}</CardText>
-              </CardBody>
-              <div className="card-footer">
-                <Button
-                  color="info"
-                  outline
-                  color="primary"
-                  onClick={() => addItem(res)}
-                >
-                  + Add To Cart
-                </Button>
-              </div>
-            </Card>
-          </Col>
+          <Card style={{ margin: "0 10px", padding: "0" }}>
+            <CardImg top={true} src={`http://localhost:1337${res.image.url}`} />
+            <CardBody>
+              <CardTitle>{res.name}</CardTitle>
+              <CardText>{res.description}</CardText>
+            </CardBody>
+            <div className="card-footer">
+              <Button
+                color="info"
+                outline
+                color="primary"
+                onClick={() => addItem(res)}
+              >
+                + Add To Cart
+              </Button>
+            </div>
+          </Card>
         ))}
       </>
     );
   } else {
-    return <h1> No Dishes</h1>;
+    return (
+      <a>
+        <h1>...</h1>
+      </a>
+    );
   }
 }
 export default Dishes;

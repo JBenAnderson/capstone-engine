@@ -92,7 +92,7 @@ function Cart() {
   // return Cart
   return (
     <div>
-      <h1> Cart</h1>
+      <h1 style={{ margin: "10px 5px 10px 10px" }}> Cart</h1>
       <Card style={{ padding: "10px 5px" }} className="cart">
         <CardTitle style={{ margin: 10 }}>Your Order:</CardTitle>
         <hr />
