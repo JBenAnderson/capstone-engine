@@ -48,10 +48,17 @@ function Dishes({ restId }) {
     return (
       <>
         {restaurant.dishes.map((res) => (
-          <Card style={{ margin: "0 10px", padding: "0" }}>
+          <Card
+            style={{ margin: "0 10px", padding: "0" }}
+            key={restaurant.dishes[i]}
+          >
             <CardImg top={true} src={`http://localhost:1337${res.image.url}`} />
             <CardBody>
-              <CardTitle>{res.name}</CardTitle>
+              <CardTitle>
+                <a>
+                  <h6>{res.name}</h6>
+                </a>
+              </CardTitle>
               <CardText>{res.description}</CardText>
             </CardBody>
             <div className="card-footer">

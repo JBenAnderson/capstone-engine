@@ -4,6 +4,7 @@ import { useContext, useState } from "react";
 import AppContext from "./context";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Link from "next/Link";
+import { InputGroup, InputGroupAddon, Input } from "reactstrap";
 
 import {
   Button,
@@ -17,12 +18,14 @@ import {
   Col,
   NavItem,
 } from "reactstrap";
+import { render } from "react-dom";
 
 function RestaurantList(props) {
   const [restaurantID, setRestaurantID] = useState(0);
   const { cart } = useContext(AppContext);
   const [state, setState] = useState(cart);
-  const carouselList = [];
+  const [searchField, setSearchField] = useState("");
+
   const GET_RESTAURANTS = gql`
     query {
       restaurants {
@@ -74,9 +77,23 @@ function RestaurantList(props) {
             color="info"
             onClick={() => {
               setRestaurantID(res.id);
+
+              //grab handle on search field to place (res.name) inside input.
+              let search = document.querySelector(
+                "#__next > div > div > div.search > div > input"
+              );
+
+              //safely trigger react re-render through window.HTMLInputElement and create input event
+
+              var nativeInputValueSetter = Object.getOwnPropertyDescriptor(
+                window.HTMLInputElement.prototype,
+                "value"
+              ).set;
+              nativeInputValueSetter.call(search, res.name);
+
+              var inputEvent = new Event("input", { bubbles: true });
+              search.dispatchEvent(inputEvent);
             }}
-            //as={"/restaurants" + res.name}
-            //href={"restaurants/" + res.name}
           >
             {res.name}
           </Button>
