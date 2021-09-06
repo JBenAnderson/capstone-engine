@@ -84,6 +84,7 @@ function RestaurantList(props) {
               );
 
               //safely trigger react re-render through window.HTMLInputElement and create input event
+              // that applies restaurant name to search for easier dish viewing.
 
               var nativeInputValueSetter = Object.getOwnPropertyDescriptor(
                 window.HTMLInputElement.prototype,
