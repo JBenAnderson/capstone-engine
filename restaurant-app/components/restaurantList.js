@@ -24,7 +24,6 @@ function RestaurantList(props) {
   const [restaurantID, setRestaurantID] = useState(0);
   const { cart } = useContext(AppContext);
   const [state, setState] = useState(cart);
-  const [searchField, setSearchField] = useState("");
 
   const GET_RESTAURANTS = gql`
     query {

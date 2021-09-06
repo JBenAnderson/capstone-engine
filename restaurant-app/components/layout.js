@@ -36,7 +36,26 @@ const Layout = (props) => {
         <Nav className="navbar navbar-dark bg-dark">
           <NavItem>
             <Link href="/">
-              <a className="navbar-brand">Home</a>
+              <a
+                className="navbar-brand"
+                onClick={() => {
+                  //onClick behaviour to bring all restaurants back into view.  Same as return button (todo)
+                  let search = document.querySelector(
+                    "#__next > div > div > div.search > div > input"
+                  );
+
+                  var nativeInputValueSetter = Object.getOwnPropertyDescriptor(
+                    window.HTMLInputElement.prototype,
+                    "value"
+                  ).set;
+                  nativeInputValueSetter.call(search, null);
+
+                  var inputEvent = new Event("input", { bubbles: true });
+                  search.dispatchEvent(inputEvent);
+                }}
+              >
+                Home
+              </a>
             </Link>
           </NavItem>
           <NavItem className="ml-auto">
