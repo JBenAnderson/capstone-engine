@@ -3,6 +3,7 @@ import Dishes from "./dishes";
 import { useContext, useState } from "react";
 import AppContext from "./context";
 import "bootstrap/dist/css/bootstrap.min.css";
+import Link from "next/Link";
 
 import {
   Button,
@@ -14,6 +15,7 @@ import {
   Container,
   Row,
   Col,
+  NavItem,
 } from "reactstrap";
 
 function RestaurantList(props) {
@@ -72,8 +74,9 @@ function RestaurantList(props) {
             color="info"
             onClick={() => {
               setRestaurantID(res.id);
-              let cardFocus = document.getElementById("card");
             }}
+            //as={"/restaurants" + res.name}
+            //href={"restaurants/" + res.name}
           >
             {res.name}
           </Button>

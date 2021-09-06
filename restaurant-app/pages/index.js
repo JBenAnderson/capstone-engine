@@ -32,6 +32,7 @@ function Home() {
         <br></br>
       </div>
       <RestaurantList search={query} />
+
       <Cart> </Cart>
     </ApolloProvider>
   );
