@@ -54,7 +54,7 @@ function RestaurantList(props) {
   if (searchQuery.length > 0) {
     const restList = searchQuery.map((res) => (
       <Card
-        style={{ margin: "0 0.5rem 20px 0.5rem", padding: 0 }}
+        style={{ margin: "0 0.5rem 10px 0.5rem", padding: 0, marginLeft: 23 }}
         className="card"
         key={res.id}
       >
@@ -82,18 +82,16 @@ function RestaurantList(props) {
     ));
 
     return (
-      <Container style={{ margin: "10px 70px -15px 70px" }}>
-        <Container className="container-fluid" id="container-fluid">
-          <Col xs="6" sm="12" className="column" id="column">
-            <Row xs="6" sm="12" className="row" id="row">
-              {restList}
-            </Row>
+      <Container className="container-fluid" id="container-fluid">
+        <Col xs="6" sm="12" className="column" id="column">
+          <Row xs="6" sm="6" className="rowRestaurant" id="rowRestaurant">
+            {restList}
+          </Row>
 
-            <Row xs="6" sm="4" className="rowDish" id="rowDish">
-              {renderDishes(restaurantID)}
-            </Row>
-          </Col>
-        </Container>
+          <Row xs="6" sm="4" className="rowDish" id="rowDish">
+            {renderDishes(restaurantID)}
+          </Row>
+        </Col>
       </Container>
     );
   } else {

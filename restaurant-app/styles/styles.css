@@ -1,6 +1,6 @@
 .card {
   margin: 0 0.5em;
-  box-shadow: 2px 6px 8px 0 rgba(22, 22, 26, 0.18);
+  box-shadow: 2px 6px 8px 0 rgb(0, 0, 0);
 }
 
 .card:hover,
@@ -8,7 +8,7 @@
 .card:active {
   color: #0070f3;
   border-color: #0070f3;
-  border-width: 5px;
+  border-width: 2px;
 }
 
 .row {
@@ -24,5 +24,19 @@
 }
 
 .rowDish {
-  margin: 10px 70px -15px 40px;
+  margin: 10px 70px -15px 100px;
+}
+
+.column {
+  align-items: stretch;
+  width: 100%;
+}
+
+.rowRestaurant {
+  align-items: flex-start;
+  background-image: url(../public/testpic.png);
+  background-size: cover;
+  background-position: bottom 0px right;
+  margin: 0px 0px 0px 0px;
+  border: solid 3px;
 }
