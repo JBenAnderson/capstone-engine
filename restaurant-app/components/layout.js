@@ -8,7 +8,7 @@ const Layout = (props) => {
   const title = "Welcome to Nextjs";
   const { user } = useContext(AppContext);
   return (
-    <div>
+    <div className="mainBackground">
       <Head>
         <title>{title}</title>
         <meta charSet="utf-8" />
@@ -88,6 +88,7 @@ const Layout = (props) => {
           </NavItem>
         </Nav>
       </header>
+      <button className="returnButton">Return Home</button>
       <Container>{props.children}</Container>
     </div>
   );
