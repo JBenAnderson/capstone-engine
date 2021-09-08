@@ -4,7 +4,7 @@ import fetch from "isomorphic-fetch";
 import { CardElement, useStripe, useElements } from "@stripe/react-stripe-js";
 import CardSection from "./cardSection";
 import AppContext from "./context";
-import Cookies from "js-cookie";
+import Cookies from "../node_modules/js-cookie/dist/js.cookie";
 
 function CheckoutForm() {
   const [data, setData] = useState({

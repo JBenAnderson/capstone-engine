@@ -10,7 +10,6 @@ const Layout = (props) => {
   return (
     <div className="mainBackground">
       <Head>
-        <title>{title}</title>
         <meta charSet="utf-8" />
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
         <link
@@ -63,7 +62,7 @@ const Layout = (props) => {
               <h5>{user.username}</h5>
             ) : (
               <Link href="/register">
-                <a className="nav-link"> Sign up</a>
+                <a className="nav-link">{JSON.stringify(user)}</a>
               </Link>
             )}
           </NavItem>
@@ -88,7 +87,7 @@ const Layout = (props) => {
           </NavItem>
         </Nav>
       </header>
-      <button className="returnButton">Return Home</button>
+
       <Container>{props.children}</Container>
     </div>
   );
