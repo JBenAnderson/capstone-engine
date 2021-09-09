@@ -21,7 +21,7 @@ function Home() {
   return (
     <ApolloProvider client={client}>
       <div className="search">
-        <h2 className="mainTitle"> Kalamazoo's local favorites</h2>
+        <h2 className="mainTitle">Kalamazoo's local favorites</h2>
         <InputGroup>
           <InputGroupAddon addonType="append"> Search </InputGroupAddon>
           <Input

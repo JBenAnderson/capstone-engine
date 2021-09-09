@@ -21,6 +21,8 @@ function Login(props) {
   const appContext = useContext(AppContext);
 
   useEffect(() => {
+    const router = useRouter();
+    const appContext = useContext(AppContext);
     if (appContext.isAuthenticated) {
       router.push("/"); // redirect if you're already logged in
     }
@@ -87,8 +89,9 @@ function Login(props) {
                         login(data.identifier, data.password)
                           .then((res) => {
                             setLoading(false);
+                            appContext.setUser(true);
                             // set authed User in global context to update header/app state
-                            appContext.setUser(res.data.user);
+                            //appContext.setUser(res.data.user.username);
                           })
                           .catch((error) => {
                             //setError(error.response.data);

@@ -100,7 +100,9 @@ const Register = () => {
                             appContext.setUser(res.data.user);
                             setLoading(false);
                             console.log(
-                              `registered user: ${JSON.stringify(res.data)}`
+                              `registered user: ${JSON.stringify(
+                                res.data.user.username
+                              )}`
                             );
                           })
                           .catch((error) => {

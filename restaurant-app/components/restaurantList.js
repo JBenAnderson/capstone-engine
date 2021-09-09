@@ -3,7 +3,7 @@ import Dishes from "./dishes";
 import { useContext, useState } from "react";
 import AppContext from "./context";
 import "bootstrap/dist/css/bootstrap.min.css";
-import Link from "next/Link";
+import Link from "next/link";
 import { InputGroup, InputGroupAddon, Input } from "reactstrap";
 
 import {

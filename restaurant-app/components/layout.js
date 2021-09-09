@@ -20,7 +20,7 @@ const Layout = (props) => {
         />
         <script src="https://js.stripe.com/v3" />
       </Head>
-      <header>
+      <header className="header">
         <style jsx>
           {`
             a {
@@ -58,16 +58,18 @@ const Layout = (props) => {
             </Link>
           </NavItem>
           <NavItem className="ml-auto">
-            {user ? (
-              <h5>{user.username}</h5>
+            {{ user } ? (
+              <div className="userMenuTxt">
+                <h5>{JSON.stringify({ user })}</h5>
+              </div>
             ) : (
               <Link href="/register">
-                <a className="nav-link">{JSON.stringify(user)}</a>
+                <a className="nav-link">Sign up</a>
               </Link>
             )}
           </NavItem>
           <NavItem>
-            {user ? (
+            {{ user } ? (
               <Link href="/">
                 <a
                   className="nav-link"
