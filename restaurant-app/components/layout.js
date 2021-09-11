@@ -6,7 +6,7 @@ import AppContext from "./context";
 
 const Layout = (props) => {
   const title = "Welcome to Nextjs";
-  const { user } = useContext(AppContext);
+  const { user, setUser } = useContext(AppContext);
   return (
     <div className="mainBackground">
       <Head>
@@ -42,15 +42,19 @@ const Layout = (props) => {
                   let search = document.querySelector(
                     "#__next > div > div > div.search > div > input"
                   );
+                  if (search == null) {
+                    return;
+                  } else {
+                    var nativeInputValueSetter =
+                      Object.getOwnPropertyDescriptor(
+                        window.HTMLInputElement.prototype,
+                        "value"
+                      ).set;
+                    nativeInputValueSetter.call(search, null);
 
-                  var nativeInputValueSetter = Object.getOwnPropertyDescriptor(
-                    window.HTMLInputElement.prototype,
-                    "value"
-                  ).set;
-                  nativeInputValueSetter.call(search, null);
-
-                  var inputEvent = new Event("input", { bubbles: true });
-                  search.dispatchEvent(inputEvent);
+                    var inputEvent = new Event("input", { bubbles: true });
+                    search.dispatchEvent(inputEvent);
+                  }
                 }}
               >
                 Home
@@ -58,18 +62,16 @@ const Layout = (props) => {
             </Link>
           </NavItem>
           <NavItem className="ml-auto">
-            {{ user } ? (
-              <div className="userMenuTxt">
-                <h5>{JSON.stringify({ user })}</h5>
-              </div>
+            {user ? (
+              <h5>{user.username}</h5>
             ) : (
               <Link href="/register">
-                <a className="nav-link">Sign up</a>
+                <a className="nav-link"> Sign up</a>
               </Link>
             )}
           </NavItem>
           <NavItem>
-            {{ user } ? (
+            {user ? (
               <Link href="/">
                 <a
                   className="nav-link"
@@ -89,7 +91,6 @@ const Layout = (props) => {
           </NavItem>
         </Nav>
       </header>
-
       <Container>{props.children}</Container>
     </div>
   );

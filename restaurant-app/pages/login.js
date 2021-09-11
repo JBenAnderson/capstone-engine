@@ -21,8 +21,6 @@ function Login(props) {
   const appContext = useContext(AppContext);
 
   useEffect(() => {
-    const router = useRouter();
-    const appContext = useContext(AppContext);
     if (appContext.isAuthenticated) {
       router.push("/"); // redirect if you're already logged in
     }
