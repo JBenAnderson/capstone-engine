@@ -1,6 +1,6 @@
-import { useContext, useState } from "react";
+import React, { useContext, useState } from "react";
 import Head from "next/head";
-import AppContext from "../components/context";
+import { AppContext } from "../components/context";
 import Home from "./index";
 import Layout from "../components/layout";
 import Cookie from "js-cookie";
@@ -10,6 +10,31 @@ function MyApp(props) {
   var { cart, addItem, removeItem, user, setUser } = useContext(AppContext);
   const [state, setState] = useState({ cart: cart });
   const { Component, pageProps } = props;
+
+  // function componentDidMount() {
+  //   // grab token value from cookie
+  //   const token = Cookie.get("token");
+
+  //   if (token) {
+  //     // authenticate the token on the server and place set user object
+  //     fetch(`${process.env.NEXT_PUBLIC_API_URL}users/me`, {
+  //       headers: {
+  //         Authorization: `Bearer ${token}`,
+  //       },
+  //     }).then(async (res) => {
+  //       // if res comes back not valid, token is not valid
+  //       // delete the token and log the user out on client
+  //       if (!res.ok) {
+  //         Cookie.remove("token");
+  //         setState({ user: null });
+  //         return null;
+  //       }
+  //       const user = await res.json();
+  //       setUser(user);
+  //     });
+  //   }
+  // }
+  // //componentDidMount();
 
   setUser = (user) => {
     setState({ user });
@@ -85,12 +110,12 @@ function MyApp(props) {
   return (
     <AppContext.Provider
       value={{
-        cart: state.cart,
+        cart: [state.cart],
         addItem: addItem,
         removeItem: removeItem,
-        isAuthenticated: false,
-        user: null,
-        setUser: () => {},
+        isAuthenticated: !!state.user,
+        user: state.user,
+        setUser: setUser,
       }}
     >
       <Head>

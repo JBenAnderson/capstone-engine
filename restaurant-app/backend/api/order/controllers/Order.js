@@ -25,7 +25,7 @@ module.exports = {
       // Transform cents to dollars.
       amount: stripeAmount,
       currency: "usd",
-      description: `Order ${new Date()} by ${ctx.state.user._id}`,
+      description: `Order ${new Date()} by ${ctx.state.user.id}`,
       source: token,
     });
 

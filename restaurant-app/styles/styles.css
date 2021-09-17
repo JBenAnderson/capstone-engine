@@ -39,13 +39,14 @@
   align-items: flex-start;
   background-image: url(../public/KalamazooBG.png);
   background-size: cover;
+  background-color: rgb(191, 183, 183);
   background-position: bottom 0px right;
   margin: 0px 0px 0px 0px;
   border: solid 3px;
 }
 
 .mainBackground {
-  background: white;
+  background-color: rgb(191, 183, 183);
 }
 
 .returnButton {
@@ -61,7 +62,7 @@ body {
 .mainTitle {
   text-align: center;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
-  text-shadow: 2px 2px 2px #000000;
+  text-shadow: 3px 3px 3px #000000;
   background-color: rgb(255, 255, 255) !important;
   color: rgb(255, 0, 0);
 }

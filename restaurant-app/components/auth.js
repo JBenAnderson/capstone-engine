@@ -4,6 +4,7 @@ import { useEffect } from "react";
 import Router from "next/router";
 import Cookie from "js-cookie";
 import axios from "axios";
+import { user, setUser } from "../components/context.js";
 
 const API_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:1337";
 
@@ -63,6 +64,8 @@ export const logout = () => {
   delete window.__user;
   // sync logout between multiple windows
   window.localStorage.setItem("logout", Date.now());
+  setUser(null);
+  user(false);
   //redirect to the home page
   Router.push("/");
 };

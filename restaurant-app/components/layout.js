@@ -1,15 +1,21 @@
+/* /components/Layout.js */
+
 import React, { useContext } from "react";
 import Head from "next/head";
 import Link from "next/link";
 import { Container, Nav, NavItem } from "reactstrap";
-import AppContext from "./context";
+import { logout } from "../components/auth.js";
+import AppContext from "../components/context.js";
 
 const Layout = (props) => {
   const title = "Welcome to Nextjs";
   const { user, setUser } = useContext(AppContext);
+  console.log(user);
+
   return (
-    <div className="mainBackground">
+    <div>
       <Head>
+        <title>{title}</title>
         <meta charSet="utf-8" />
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
         <link
@@ -20,7 +26,7 @@ const Layout = (props) => {
         />
         <script src="https://js.stripe.com/v3" />
       </Head>
-      <header className="header">
+      <header>
         <style jsx>
           {`
             a {
@@ -35,32 +41,10 @@ const Layout = (props) => {
         <Nav className="navbar navbar-dark bg-dark">
           <NavItem>
             <Link href="/">
-              <a
-                className="navbar-brand"
-                onClick={() => {
-                  //onClick behaviour to bring all restaurants back into view.  Same as return button (todo)
-                  let search = document.querySelector(
-                    "#__next > div > div > div.search > div > input"
-                  );
-                  if (search == null) {
-                    return;
-                  } else {
-                    var nativeInputValueSetter =
-                      Object.getOwnPropertyDescriptor(
-                        window.HTMLInputElement.prototype,
-                        "value"
-                      ).set;
-                    nativeInputValueSetter.call(search, null);
-
-                    var inputEvent = new Event("input", { bubbles: true });
-                    search.dispatchEvent(inputEvent);
-                  }
-                }}
-              >
-                Home
-              </a>
+              <a className="navbar-brand">Home</a>
             </Link>
           </NavItem>
+
           <NavItem className="ml-auto">
             {user ? (
               <h5>{user.username}</h5>

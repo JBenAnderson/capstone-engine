@@ -18,6 +18,7 @@ function Cart() {
   console.log(`Router Path: ${JSON.stringify(router)}`);
   const renderItems = () => {
     let { items } = cart;
+
     console.log(`items: ${JSON.stringify(items)}`);
     if (items && items.length) {
       var itemList = cart.items.map((item) => {
